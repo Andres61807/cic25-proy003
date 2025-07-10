@@ -35,21 +35,24 @@ public class CalculadoraTest {
     public void testMultiplicar(){
         Calculadora calc=new Calculadora();
 
+        calc.sumar(5);
         calc.multiplicar(10);
 
         double resultado=calc.getTotal();
 
-        assertEquals(0,resultado,0.00001);
+        assertEquals(50,resultado,0.00001);
     }
 
     @Test
     public void testDividir(){
         Calculadora calc=new Calculadora();
 
-        calc.multiplicar(0);
+
+        calc.sumar(10);
+        calc.dividir(2);
 
         double resultado=calc.getTotal();
 
-        assertEquals(0,resultado,0.00001);
+        assertEquals(5,resultado,0.00001);
     }
 }
