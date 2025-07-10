@@ -24,10 +24,11 @@ public class CalculadoraTest {
         Calculadora calc=new Calculadora();
 
         calc.restar(10);
+        calc.restar(10);
 
         double resultado=calc.getTotal();
 
-        assertEquals(-10,resultado,0.00001);
+        assertEquals(-20,resultado,0.00001);
     }
 
     @Test
