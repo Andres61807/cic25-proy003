@@ -46,9 +46,8 @@ public class CalculadoraTest {
     @Test
     public void testDividir(){
         Calculadora calc=new Calculadora();
-
-
         calc.sumar(10);
+        
         calc.dividir(2);
 
         double resultado=calc.getTotal();
