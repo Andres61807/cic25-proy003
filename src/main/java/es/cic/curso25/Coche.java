@@ -3,6 +3,7 @@ package es.cic.curso25;
 public class Coche {
 
     private Calculadora calc;
+    private int velocidad;
     public static final double MULTIPLO_CONSUMO=4.3;
     
     public Coche(){
@@ -10,20 +11,28 @@ public class Coche {
     }
 
     public int getVelocidad(){
-        return (int)calc.getTotal();
+        return velocidad;
     }
 
     public double getConsumo(){
-        return calc.getTotal()/100*MULTIPLO_CONSUMO;
+        calc.limpiar();
+        calc.sumar(velocidad);
+        calc.dividir(100);
+        calc.multiplicar(MULTIPLO_CONSUMO);
+        return calc.getTotal();
     }
 
     public void acelerar(int incrementoVelocidad){
+        calc.limpiar();
         calc.sumar(incrementoVelocidad);
+        velocidad=(int)Math.round(calc.getTotal());
     }
 
     public void frenar(int decrementoVelocidada){
-        if(calc.getTotal()>=decrementoVelocidada){
+        calc.limpiar();
+        if(velocidad>=decrementoVelocidada){
             calc.restar(decrementoVelocidada);
+            velocidad=(int)Math.round(calc.getTotal());
         } else {
             throw new UnsupportedOperationException("No puedes restar por debajo de 0");
         }

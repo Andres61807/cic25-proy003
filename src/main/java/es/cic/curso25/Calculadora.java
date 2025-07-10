@@ -26,4 +26,8 @@ public class Calculadora extends Object {
             throw new ArithmeticException("division entre 0");
         }
     }
+
+    public void limpiar(){
+        total=0;
+    }
 }
