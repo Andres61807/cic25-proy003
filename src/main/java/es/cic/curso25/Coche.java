@@ -24,15 +24,20 @@ public class Coche {
 
     public void acelerar(int incrementoVelocidad){
         calc.limpiar();
-        calc.sumar(incrementoVelocidad);
-        velocidad=(int)Math.round(calc.getTotal());
+        if((velocidad+incrementoVelocidad)<=300){
+            calc.sumar(incrementoVelocidad);
+            velocidad+=(int)Math.round(calc.getTotal());
+        } else {
+            throw new UnsupportedOperationException("No puedes restar por debajo de 0");
+        }
     }
 
     public void frenar(int decrementoVelocidada){
         calc.limpiar();
-        if(velocidad>=decrementoVelocidada){
+        if((velocidad-decrementoVelocidada)>=0){
+            calc.sumar(velocidad);
             calc.restar(decrementoVelocidada);
-            velocidad=(int)Math.round(calc.getTotal());
+            velocidad-=(int)Math.round(calc.getTotal());
         } else {
             throw new UnsupportedOperationException("No puedes restar por debajo de 0");
         }
